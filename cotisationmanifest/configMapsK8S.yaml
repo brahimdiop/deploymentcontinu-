@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  default.host-keycloak: 15.235.163.165
+  default.port-keycloak: "9080"
+  default.user-keycloak: admin8
+kind: ConfigMap
+metadata:
+  name: keycloak-config
+  namespace: default

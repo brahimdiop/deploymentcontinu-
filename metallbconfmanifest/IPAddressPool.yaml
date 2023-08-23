@@ -1,0 +1,9 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: monippool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 139.99.120.24/24
+
