@@ -14,15 +14,12 @@ node {
                         sh "git config user.name brahimdiop"
                         //sh "git switch master"
                         sh "cat ./administrationmanifestfiles/deployment-front.yaml" //affricher le contenu
-                        sh "sed -i 's+brims15/frontadmine.*+brims15/frontadmine:${DOCKERTAG}+g' ./administrationmanifestfiles/deployment-front.yaml"
-                        //remplacer lancienne image par la nouvelle dans le file deployment-front
-                        sh "cat ./administrationmanifestfiles/deployment-front.yaml"            
-
+                        sh "sed -i 's+brims15/frontadmine.*+brims15/frontadmine:${DOCKERTAG}+g' ./administrationmanifestfiles/deployment-front.yaml"                       
+                        sh "cat ./administrationmanifestfiles/deployment-front.yaml"
                         sh "git add ." 
-                        sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"                 
-
+                        sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'" 
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/deploymentcontinu-.git HEAD:master"
-                        sh "git commit -m 'docker tag =================== ${DOCKERTAG}' "
+                       
                         
                         
       }
