@@ -1,0 +1,291 @@
+
+======================================================================CREATE SECRET ON K8S======================================
+
+    • Création d’un secret pour Docker par exemple : 
+
+kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=<usernamedocker> --docker-password=<passworddocker> --docker-email=<@email_utilise_dans _docker>
+
+Une fois ok on aura ce message
+
+secret/regcred created
+
+Pour obtenir le secret qu’on a créé dans un format lisible on saisit la commande suivante : 
+
+kubectl get secret regcred --output=yaml
+
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOnsidXNlcm5hbWUiOiJicmltczE1IiwicGFzc3dvcmQiOiJkaW9wQGRpb3AiLCJlbWFpbCI6ImlicmFoaW1hZGlvcDE3MTBAZ21haWwuY29tIiwiYXV0aCI6IlluSnBiWE14TlRwa2FXOXdRR1JwYjNBPSJ9fX0=
+kind: Secret
+metadata:
+  creationTimestamp: "2023-01-24T13:46:25Z"
+  name: regcred
+  namespace: default
+  resourceVersion: "614212"
+  uid: c0ca04e7-da5b-44c1-aca1-7e79254c2ab9
+type: kubernetes.io/dockerconfigjson
+
+Apres on peut enlever le uid et la resourceVersion puis copier le reste dans fichier avec une extention yaml et le sauvegarder quelque part 
+
+
+
+================================================================================================================================
+
+
+
+======================================SET IPADRESS========================
+kubectl patch svc istio-ingressgateway --namespace istio-system --patch '{"spec": { "loadBalancerIP": "192.168.2.35" }}'
+
+===========================================================================
+==============================ISTIO================
+export PATH=$PWD/bin:$PATH
+===================================================
+
+==========================================================bitbucked====================================
+ATBBqvTNHVCH92w6jeZ3NwGbKYvFC93FAAF2
+=======================================================================================================
+
+
+=================================================IP 158==============================
+158.68.27.218
+wKQp2l7n7UgzwLA4
+===================================================================================== 
+
+install oracle with docker 
+
+docker run --name dbcnssprod -p 1521:1521 -e ORACLE_PWD=Afrilins@2023  -v oracle-data:/opt/oracle/oradataprod container-registry.oracle.com/database/express:21.3.0-xe
+=====================================================================================
+
+===========================================docker postgres==========================
+exporter 
+ sudo docker exec -t postgres_brazza pg_dump -c -U keycloak -d keycloak > dump_$(date +%Y-%m-%d_%H_%M_%S).sql 
+
+importer 
+
+sudo cat dump_2023-04-26_20_02_39.sql | docker exec -i postgres_brazza psql -U keycloak -d keycloak
+
+
+
+kubeadm join 192.168.1.23:6443 --token y1x6x8.ag52cuihj934t3hb \
+        --discovery-token-ca-cert-hash sha256:55b1738c8cfc88b2f0d753e515f8f054099073ec8a02edc0b4c92cb50d24131
+
+
+
+rm /etc/containerd/config.toml
+systemctl restart containerd
+
+
+
+===================================================fixer une @ip 20.04=====================================
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.0.123/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
+
+
+========================================CHNAGER DE VERSION JAVA DEJA INSTALLE===================================
+sudo update-alternatives --config java
+=================================================================================================================
+
+===============================================================SOS ORACLE====================================================
+
+=============================================================================================================================
+
+
+
+=========================================================================mise en place dun cluster k8s sur ubuntu 20.04==========================================================
+
+================================1. fixer l@IP sudo nano /etc/netplan/
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.0.123/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
+        
+================================================================================================
+
+
+
+
+1.curl -fsSL https://get.docker.com | sh;
+3.
+sudo groupadd -g 500000 dockremap && 
+sudo groupadd -g 501000 dockremap-user && 
+sudo useradd -u 500000 -g dockremap -s /bin/false dockremap && 
+sudo useradd -u 501000 -g dockremap-user -s /bin/false dockremap-user
+
+4.
+sudo echo "dockremap:500000:65536" >> sudo /etc/subuid && 
+sudo echo "dockremap:500000:65536" >> sudo /etc/subgid
+
+
+
+echo "
+  {
+   \"userns-remap\": \"default\"
+  }
+" > sudo /etc/docker/daemon.json
+
+6.sudo systemctl daemon-reload && sudo systemctl restart docker
+
+7. desactiver le swap 
+8.
+sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+9.en mode root sudo -i
+sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+10. 
+sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+
+
+==============================================================
+désactivation du swap
+
+
+
+swapoff -a
+vim /etc/fstab
+
+
+
+
+mise en place du dépôt apt :
+
+
+apt-get update && apt-get install -y apt-transport-https curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+
+
+
+
+installation des binaires kubernetes :
+
+
+sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+systemctl enable kubelet
+
+
+
+- kubeadm : installation du cluster
+- kubelet : service qui tourne sur les machines (lancement pods...)
+- kubectl : permet la communication avec le cluster
+==============================================================
+
+=========================================
+quan ton oublie notre notre comd dinitialisation : 
+kubeadm join 192.168.2.34:6443 --token katghq.n680e55inoliqoap --discovery-token-ca-cert-hash sha256:56a315c4ae30fa4766f8be09be6068945089e1639b344835461557daa42a2144 
+
+=========================================
+
+=====================================================================ORACLE==========================
+alter session set "_ORACLE_SCRIPT"=true;  
+
+
+
+CREATE USER  admine IDENTIFIED BY "admine";
+GRANT ALL PRIVILEGES TO admine;
+
+CREATE USER  parametrageGlo IDENTIFIED BY "admine";
+GRANT ALL PRIVILEGES TO admine;
+
+alter session set "_ORACLE_SCRIPT"=true;  
+CREATE USER  admine IDENTIFIED BY "admine";
+GRANT ALL PRIVILEGES TO admine;
+CREATE USER  parametrageglobal IDENTIFIED BY "parametrageglobal";
+GRANT ALL PRIVILEGES TO parametrageglobal;
+
+CREATE USER  immatriculation IDENTIFIED BY "immatriculation";
+GRANT ALL PRIVILEGES TO immatriculation;
+
+CREATE USER  cotisation IDENTIFIED BY "cotisation";
+GRANT ALL PRIVILEGES TO cotisation;
+
+CREATE USER  frontoffice IDENTIFIED BY "frontoffice";
+GRANT ALL PRIVILEGES TO frontoffice;
+
+CREATE USER  tresorerie IDENTIFIED BY "tresorerie";
+GRANT ALL PRIVILEGES TO tresorerie;
+
+CREATE USER  comptabilite IDENTIFIED BY "comptabilite";
+GRANT ALL PRIVILEGES TO comptabilite;
+
+CREATE USER  mandat IDENTIFIED BY "mandat";
+GRANT ALL PRIVILEGES TO mandat;
+
+CREATE USER  risquesprofessionnels IDENTIFIED BY "risquesprofessionnels";
+GRANT ALL PRIVILEGES TO risquesprofessionnels;
+
+CREATE USER  prestationsfamiliales IDENTIFIED BY "prestationsfamiliales";
+GRANT ALL PRIVILEGES TO prestationsfamiliales;
+
+CREATE USER  aprostockimmo IDENTIFIED BY "aprostockimmo";
+GRANT ALL PRIVILEGES TO aprostockimmo;
+
+CREATE USER  sirh IDENTIFIED BY "sirh";
+GRANT ALL PRIVILEGES TO sirh;
+
+CREATE USER  pension IDENTIFIED BY "pension";
+GRANT ALL PRIVILEGES TO pension;
+
+CREATE USER  tracaction IDENTIFIED BY "tracaction";
+GRANT ALL PRIVILEGES TO tracaction;
+
+CREATE USER  rapprochement IDENTIFIED BY "rapprochement";
+GRANT ALL PRIVILEGES TO rapprochement;
+
+CREATE USER  etatfinancier IDENTIFIED BY "etatfinancier";
+GRANT ALL PRIVILEGES TO etatfinancier;
+
+
+
+
+
+
+
+
+
+
+
+
+
+drop user cotisation CASCADE;
+drop user immatriculation CASCADE;
+drop user comptabilite CASCADE;
+drop user tresorerie CASCADE;
+
+drop user immatriculation CASCADE;
+drop user parametrageglobal CASCADE;
+drop user administration CASCADE;
+
+
+
+
+
+
+=========================================PROXMOX AFRILINS===========================
+ https://ns545771.ip-139-99-120.net:8006
+ 
+ ip 139.99.120.24   
+ 
+ mdp : QCumeJ2ufKTorOUL
+====================================================================================
+
+
+kubectl create secret generic secretrp --from-literal=username=risquesprofessionnels --from-literal=password=risquesprofessionnels
+
+
+
+
+
