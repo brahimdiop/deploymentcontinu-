@@ -10,11 +10,17 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /v1/api/lotcorrections 
+        prefix: /v1/api/controles 
     - uri:
-        prefix: /v1/api/rapprochementbancaires 
+        prefix: /v1/api/age 
     - uri:
-        prefix: /v1/api/relevebancaires    
+        prefix: /v1/api/dossier
+    - uri:
+        prefix: /v1/api/localisation
+    - uri:
+        prefix: /v1/api/mode
+    - uri:
+        prefix: /v1/api/salaire     
     route:
     - destination:
         host: service-pension.default.svc.cluster.local
