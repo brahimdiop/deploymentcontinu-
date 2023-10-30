@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rp-backend
+  name: pension-backend
   labels:
-    app: rp-backend
+    app: pension-backend
     type: backend
 spec:
   selector:
     matchLabels:
-      app: rp-backend
+      app: pension-backend
       type: backend
   replicas: 1
   strategy:
@@ -16,14 +16,14 @@ spec:
   template:
     metadata:
       labels:
-        app: rp-backend
+        app: pension-backend
         type: backend
     spec:
       imagePullSecrets:
        - name: regcred
       containers:
-        - name: rp-backend
-          image: brims15/risquesprofessionnels:0.0.1-SNAPSHOT
+        - name: pension-backend
+          image: brims15/pension:0.0.1-SNAPSHOT
           securityContext:
             capabilities:
               add:
@@ -39,29 +39,29 @@ spec:
               #---------------------------------#
           ports:
             - name: api
-              containerPort: 8084
+              containerPort: 8083
               protocol: TCP
           imagePullPolicy: Always
           env:
-            - name: ORACLEHOSTRP
+            - name: ORACLEHOSTPENSION
               valueFrom:
                 configMapKeyRef:
-                  name: oracle-config-rp
-                  key: default.oracle-instance-host-rp
-            - name: ORACLEPORTRP
+                  name: oracle-config-pension
+                  key: default.oracle-instance-host-pension
+            - name: ORACLEPORTPENSION
               valueFrom:
                 configMapKeyRef:
-                  name: oracle-config-rp
-                  key: default.oracle-instance-port-rp
-            - name: ORACLEUSERRP
+                  name: oracle-config-pension
+                  key: default.oracle-instance-port-pension
+            - name: ORACLEUSERPENSION
               valueFrom:
                 configMapKeyRef:
-                  name: oracle-config-rp
-                  key: default.oracle-instance-user-rp
-            - name: ORACLEPASSWORDRP
+                  name: oracle-config-pension
+                  key: default.oracle-instance-user-pension
+            - name: ORACLEPASSWORDPENSION
               valueFrom:
                 secretKeyRef:
-                  name: oracle-instance-password-rp
+                  name: oracle-instance-password-pension
                   key: password
             - name: ORACLEHOSTFO
               valueFrom:

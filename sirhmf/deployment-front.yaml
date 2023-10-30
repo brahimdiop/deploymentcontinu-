@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: admin-front-deployment
+  name: sirh-front-deployment
   labels:
-    app: admin-front
+    app: sirh-front
     type: front
 spec:
   selector:
     matchLabels:
-      app: admin-front
+      app: sirh-front
       type: front
   replicas: 1
   strategy:
@@ -16,14 +16,14 @@ spec:
   template:
     metadata:
       labels:
-        app: admin-front    
+        app: sirh-front    
         type: front
     spec:
       imagePullSecrets:
        - name: regcred
       containers:
-        - name: admin-front
-          image: brims15/frontadmine:1
+        - name: sirh-front
+          image: brims15/frontsirh:1
           securityContext:
             capabilities:
               add:

@@ -10,11 +10,21 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /v1/api/lotcorrections 
+        prefix: /v1/api/controles 
     - uri:
-        prefix: /v1/api/rapprochementbancaires 
+        prefix: /v1/api/param 
     - uri:
-        prefix: /v1/api/relevebancaires    
+        prefix: /v1/api/droit 
+    - uri:
+        prefix: /v1/api/fiche  
+    - uri:
+        prefix: /v1/api/frais  
+    - uri:
+        prefix: /v1/api/grappe 
+    - uri:
+        prefix: /v1/api/temps 
+    - uri:
+        prefix: /v1/api/validation     
     route:
     - destination:
         host: service-pf.default.svc.cluster.local

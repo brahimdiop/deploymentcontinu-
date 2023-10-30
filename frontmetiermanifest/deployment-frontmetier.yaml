@@ -31,11 +31,11 @@ spec:
                 - NET_RAW
           resources:
             requests:
-              memory: "5348Mi"
-              cpu: "900m"
+              memory: "128Mi"
+              cpu: "100m"
             limits:
-              memory: "11Gi"
-              cpu: "8"
+              memory: "1Gi"
+              cpu: "2"
               #---------------------------------#
           ports:
             - name: api

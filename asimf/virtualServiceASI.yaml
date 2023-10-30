@@ -10,11 +10,62 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /v1/api/lotcorrections 
+        prefix: /v1/api/budgets 
     - uri:
-        prefix: /v1/api/rapprochementbancaires 
+        prefix: /v1/api/engagements 
     - uri:
-        prefix: /v1/api/relevebancaires    
+        prefix: /v1/api/poste 
+    - uri:
+        prefix: /v1/api/batiment 
+    - uri:
+        prefix: /v1/api/articles 
+    - uri:
+        prefix: /v1/api/article 
+    - uri:
+        prefix: /v1/api/agents 
+    - uri:
+        prefix: /v1/api/inventaire 
+    - uri:
+        prefix: /v1/api/fiche 
+    - uri:
+        prefix: /v1/api/fournisseur 
+    - uri:
+        prefix: /v1/api/expression_de_besoin 
+    - uri:
+        prefix: /v1/api/typeContrat 
+    - uri:
+        prefix: /v1/api/ligne 
+    - uri:
+        prefix: /v1/api/bon_de 
+    - uri:
+        prefix: /v1/api/categorie 
+    - uri:
+        prefix: /v1/api/centreDeGestion 
+    - uri:
+        prefix: /v1/api/emplacement 
+    - uri:
+        prefix: /v1/api/famille 
+    - uri:
+        prefix: /v1/api/magasin 
+    - uri:
+        prefix: /v1/api/motif_rejet 
+    - uri:
+        prefix: /v1/api/niveau 
+    - uri:
+        prefix: /v1/api/taxe 
+    - uri:
+        prefix: /v1/api/unites 
+    - uri:
+        prefix: /v1/api/type 
+    - uri:
+        prefix: /v1/api/urgence    
+    - uri:
+        prefix: /v1/api/bon_
+    - uri:
+        prefix: /v1/api/mouvement_de_stock 
+    - uri:
+        prefix: /v1/api/stock_disponible 
+     
     route:
     - destination:
         host: service-asi.default.svc.cluster.local

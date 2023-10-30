@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: admin-front-deployment
+  name: asi-front-deployment
   labels:
-    app: admin-front
+    app: asi-front
     type: front
 spec:
   selector:
     matchLabels:
-      app: admin-front
+      app: asi-front
       type: front
   replicas: 1
   strategy:
@@ -16,14 +16,14 @@ spec:
   template:
     metadata:
       labels:
-        app: admin-front    
+        app: asi-front    
         type: front
     spec:
       imagePullSecrets:
        - name: regcred
       containers:
-        - name: admin-front
-          image: brims15/frontadmine:1
+        - name: asi-front
+          image: brims15/frontasi:1
           securityContext:
             capabilities:
               add:

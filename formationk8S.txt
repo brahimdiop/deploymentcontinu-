@@ -1,3 +1,8 @@
+==========================================================bitbucked====================================
+ATBBqvTNHVCH92w6jeZ3NwGbKYvFC93FAAF2
+=======================================================================================================
+
+
 
 ======================================================================CREATE SECRET ON K8S======================================
 
@@ -41,9 +46,6 @@ kubectl patch svc istio-ingressgateway --namespace istio-system --patch '{"spec"
 export PATH=$PWD/bin:$PATH
 ===================================================
 
-==========================================================bitbucked====================================
-ATBBqvTNHVCH92w6jeZ3NwGbKYvFC93FAAF2
-=======================================================================================================
 
 
 =================================================IP 158==============================
@@ -283,7 +285,7 @@ drop user administration CASCADE;
 ====================================================================================
 
 
-kubectl create secret generic secretrp --from-literal=username=risquesprofessionnels --from-literal=password=risquesprofessionnels
+kubectl create secret generic secretpension --from-literal=username=pension --from-literal=password=pension
 
 
 
