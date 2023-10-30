@@ -31,38 +31,18 @@ spec:
                 - NET_RAW
           resources:
             requests:
-              memory: "700Mi"
-              cpu: "500m"
+              memory: "128Mi"
+              cpu: "100m"
             limits:
-              memory: "3Gi"
-              cpu: "5"
+              memory: "1Gi"
+              cpu: "2"
               #---------------------------------#
           ports:
             - name: api
               containerPort: 80
               protocol: TCP
           imagePullPolicy: Always
-          env: 
-            - name: KEYCLOAKHOST
-              valueFrom:
-                configMapKeyRef:
-                  name: keycloak-config
-                  key: default.host-keycloak
-            - name: KEYCLOAKPORT
-              valueFrom:
-                configMapKeyRef:
-                  name: keycloak-config
-                  key: default.port-keycloak
-            - name: KEYCLOAKUSER
-              valueFrom:
-                configMapKeyRef:
-                  name: keycloak-config
-                  key: default.user-keycloak
-            - name: KEYCLOAKPASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-instance-password
-                  key: password
+          
           
           
           
