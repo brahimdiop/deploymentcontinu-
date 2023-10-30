@@ -23,7 +23,7 @@ spec:
        - name: regcred
       containers:
         - name: pf-backend
-          image: brims15/prestationsfamiliales:0.0.1-SNAPSHOT
+          image: brims15/prestationsfamilliales:0.0.1-SNAPSHOT
           securityContext:
             capabilities:
               add:
