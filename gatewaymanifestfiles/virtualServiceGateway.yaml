@@ -28,7 +28,18 @@ spec:
     - uri:
         prefix: /RAPPROCHEMENT-BANCAIRE
     - uri:
-        prefix: /ETATFINANCIER                 
+        prefix: /ETATFINANCIER
+    - uri:
+        prefix: /SIRH
+    - uri:
+        prefix: /APROSTOCKIMMO
+    - uri:
+        prefix: /RISQUESPROFESSIONNELS
+    - uri:
+        prefix: /PRESTATIONSFAMILIALES
+    - uri:
+        prefix: /PENSION
+                     
     route:  
     - destination:
         host: service-gateway.default.svc.cluster.local

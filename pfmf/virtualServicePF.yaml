@@ -24,7 +24,9 @@ spec:
     - uri:
         prefix: /v1/api/temps 
     - uri:
-        prefix: /v1/api/validation     
+        prefix: /v1/api/validation 
+    - uri:
+        prefix: /v1/api/nature     
     route:
     - destination:
         host: service-pf.default.svc.cluster.local
