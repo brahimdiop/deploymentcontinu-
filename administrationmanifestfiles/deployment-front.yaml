@@ -23,7 +23,7 @@ spec:
        - name: regcred
       containers:
         - name: admin-front
-          image: brims15/frontadmine:1
+          image: brims15/frontadmine:0.0.1-SNAPSHOT
           securityContext:
             capabilities:
               add:
