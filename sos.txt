@@ -67,8 +67,7 @@ containers:
         - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
         - --kubelet-use-node-status-port
         - --metric-resolution=15s
-        - --kubelet-insecure-tls=true
-    
+        - --kubelet-insecure-tls=true   
     
     
     dnsPolicy: ClusterFirst
@@ -77,7 +76,16 @@ containers:
 
         
 
+================================================================================git =================================================
+probleme authentification
 
+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
+
+git remote set-url origin https://<token>@github.com/<username>/<repo>
+exemple 
+git remote set-url origin https://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@github.com/brahimdiop/deploymentcontinu-
+  
+======================================================================================================================================
 
 
 
