@@ -1,4 +1,12 @@
+===================================================================================KUBERNETES DASHBOARD========================================================================================
+
+
+
+
 Kubernetes Dashboard is a powerful web-based user interface that allows you to manage and monitor your Kubernetes clusters with ease. Whether you're a beginner or an experienced Kubernetes user, this tutorial is designed to provide you with all the information you need to get started.
+
+Le tableau de bord (Dashboard) est une interface web pour Kubernetes. Vous pouvez utiliser ce tableau de bord pour déployer des applications conteneurisées dans un cluster Kubernetes, dépanner votre application conteneurisée et gérer les ressources du cluster. Vous pouvez utiliser le tableau de bord pour obtenir une vue d'ensemble des applications en cours d'exécution dans votre cluster, ainsi que pour créer ou modifier des ressources Kubernetes individuelles. (comme des Deployments, Jobs, DaemonSets, etc). Par exemple, vous pouvez redimensionner un Deployment, lancer une mise à jour progressive, recréer un pod ou déployez de nouvelles applications à l'aide d'un assistant de déploiement.
+
 
 Steps: I followed--
 Step 1: Log in to Ec2 machine using 
@@ -41,7 +49,7 @@ Ste4: Create Token for user
 kubectl -n kubernetes-dashboard create token admin-user
 #Output should look like
 
-eyJhbGciOiJSUzI1NiIsImtpZCI6Im1nYXFVVFN6ak03MllicC00SHpCNlN4eXJOTXE4azlZRTRTYkptVXV2b28ifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNjk5MzgxNzc1LCJpYXQiOjE2OTkzNzgxNzUsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJhZG1pbi11c2VyIiwidWlkIjoiYzRkMTQwNjEtYWYwZC00MDc1LWE1ODAtOGMzOWQzNmNlNmJhIn19LCJuYmYiOjE2OTkzNzgxNzUsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDphZG1pbi11c2VyIn0.IFPJSeB0leOcILB0na9TAAjh7FEvwyj3GQJuhP8m52iPOLUmxcSLZeMGWlvVs1QF1jourE3ZAH4aRHa1t8gUmnkGQRIPZzWY4WYRh-tzM-xrV0DdIhqOWjeOs3Fb5xpNORr6V4WBDo0-Mm5Dm_kJacIekOz1GLnUXgS4bsk4P4aaApz96mehQWJqw7DUcLOmp_w3P1cPUo3Qw9NNVlqYDwrW2XTIbTkpWctYBH9YralzSeoubN9jG-RCMlvwhAwoUnOrdiFIiC95npS71LncTR-mx65TvzLK0f7UAy7M9ZFZuh_u95NEV8sRA9R6os7R_TNOv8MVg8WZBjjwHA2duw
+eyJhbGciOiJSUzI1NiIsImtpZCI6Im1nYXFVVFN6ak03MllicC00SHpCNlN4eXJOTXE4azlZRTRTYkptVXV2b28ifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzAwMTMyNjcyLCJpYXQiOjE3MDAxMjkwNzIsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJhZG1pbi11c2VyIiwidWlkIjoiYzRkMTQwNjEtYWYwZC00MDc1LWE1ODAtOGMzOWQzNmNlNmJhIn19LCJuYmYiOjE3MDAxMjkwNzIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDphZG1pbi11c2VyIn0.EKPYgwcUJucRD0Q8kv6tZb4ybwM9jJTycmnttaDY-PpV_rRYCrV8uymR0v46S9gDJrO8DrH9fQhDCfZmH8b0S683grIAKG0TG8NnvEnay7T0Yz4tlTMGSflX4K66S-biGIUwtt3YqktZNVZpQK7GqT_Y3NRLr_y9-teyV8sPxyull9m2I1sXYW0IQOsqCqOn1N57GA_wcdsXlytQh1nWk3r3ufV1eI8mwLcYSnHzpdHtxgMZD5Xj6VVRGquDaLktXBqrvdo9jr6AaknJ8O6aoHU-pu25VA7-AtkeRCd6PlhM3ZH5TL98woe4IdawFg2srL05fc6odifgA3OqL9NgWw
 
 
 Step 5: Run Below command for port fordwarding
@@ -58,7 +66,7 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/late
 
 kubectl edit deploy metrics-server -n kube-system
 
-a modfier 
+a modifier 
 
 containers:
       - args:
@@ -79,7 +87,7 @@ containers:
 ================================================================================git =================================================
 probleme authentification
 
-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
+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 (token generé au niveau de githup)
 
 git remote set-url origin https://<token>@github.com/<username>/<repo>
 exemple 

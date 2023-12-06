@@ -36,7 +36,7 @@ spec:
     - uri:
         prefix: /v1/api/natureJournals
     - uri:
-        prefix: /v1/api/plancomptables    
+        prefix: /v1/api/plancomptables        
     - uri:
         prefix: /v1/api/portefeuillesAux    
     - uri:
